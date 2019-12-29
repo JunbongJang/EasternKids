@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EasternKids</title>
+
+</head>
+<!--https://github.com/stowball/jQuery-rwdImageMaps-->
+
+<body>
+    <div>
+        <div >
+            <img src="../assets/k1/ho6/2_before_you_study/before_you_study.png"
+                 usemap="#image-map"
+                 id ="background_image"
+                 alt="Lion and Bulls">
+
+            <map name="image-map">
+                <area target="" alt="Red" title="Red" href="javascript:void();" coords="58,184,354,569" shape="rect" onclick="hideBackImage('red');">
+                <area target="" alt="Orange" title="Orange" href="javascript:void();" coords="423,391,703,705" shape="rect" onclick="hideBackImage('orange');">
+                <area target="" alt="Purple" title="Purple" href="javascript:void();" coords="805,214,1165,518" shape="rect" onclick="hideBackImage('purple');">
+                <area target="" alt="Yellow" title="Yellow" href="javascript:void();" coords="1038,559,1424,880" shape="rect" onclick="hideBackImage('yellow');">
+                <area target="" alt="Blue" title="Blue" href="javascript:void();" coords="28,798,1012,1001" shape="rect" onclick="hideBackImage('blue');">
+                <area target="" alt="Green" title="Green" href="javascript:void();" coords="-1,590,293,774" shape="rect" onclick="hideBackImage('green');">
+                <area target="" alt="Green" title="Green" href="javascript:void();" coords="732,541,1012,780" shape="rect" onclick="hideBackImage('green');">
+                <area target="" alt="Green" title="Green" href="javascript:void();" coords="1055,911,1499,1005" shape="rect" onclick="hideBackImage('green');">
+            </map>
+
+            <video id="red_video" onended="hideVideo('red')" style="display: none;">
+                <source src="../assets/k1/ho6/2_before_you_study/red.mp4" type="video/mp4">
+                Your Browser don't support this video.
+            </video>
+
+            <video id="purple_video" onended="hideVideo('purple')" style="display: none;">
+                <source src="../assets/k1/ho6/2_before_you_study/purple.mp4" type="video/mp4">
+                Your Browser don't support this video.
+            </video>
+
+            <video id="orange_video" onended="hideVideo('orange')" style="display: none;">
+                <source src="../assets/k1/ho6/2_before_you_study/orange.mp4" type="video/mp4">
+                Your Browser don't support this video.
+            </video>
+
+            <video id="yellow_video" onended="hideVideo('yellow')" style="display: none;">
+                <source src="../assets/k1/ho6/2_before_you_study/yellow.mp4" type="video/mp4">
+                Your Browser don't support this video.
+            </video>
+
+            <video id="green_video" onended="hideVideo('green')" style="display: none;">
+                <source src="../assets/k1/ho6/2_before_you_study/green.mp4" type="video/mp4">
+                Your Browser don't support this video.
+            </video>
+
+            <video id="blue_video" onended="hideVideo('blue')" style="display: none;">
+                <source src="../assets/k1/ho6/2_before_you_study/blue.mp4" type="video/mp4">
+                Your Browser don't support this video.
+            </video>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+<script>
+    function hideBackImage(color) {
+        document.getElementById('background_image').style.display='none';
+        video_elem = document.getElementById(color + '_video');
+        video_elem.style.display = '';
+        video_elem.play();
+    }
+
+    function hideVideo(color) {
+        document.getElementById('background_image').style.display='';
+        video_elem = document.getElementById(color + '_video');
+        video_elem.style.display = 'none';
+    }
+</script>
+</html>
