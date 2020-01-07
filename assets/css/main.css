@@ -1,5 +1,5 @@
-.card{
-    cursor:pointer;
+body {
+    font-family: bubblegumSans;
 }
 
 @font-face {
@@ -7,111 +7,11 @@
     src: url(../fonts/BubblegumSans-Regular.ttf);
 }
 
-body {
-    font-family: bubblegumSans;
+.card{
+    cursor:pointer;
 }
 
-.btn-pink {
-    color: #fff;
-    background-color: #c933a1;
-    border-color: #c13c9d;
+.carousel-item > img {
+    width: 90%;
+    height: auto;
 }
-
-.btn-pink:hover {
-    color: #fff;
-    background-color: #c92bac;
-    border-color: #c127a8;
-}
-.btn-pink:focus,
-.btn-pink.focus {
-    color: #fff;
-    background-color: #c92bac;
-    border-color: #c127a8;
-}
-.btn-pink:active,
-.btn-pink.active,
-.open > .btn-pink.dropdown-toggle {
-    color: #fff;
-    background-color: #c934ab;
-    border-color: #c12a86;
-    background-image: none;
-}
-.btn-pink:active:hover,
-.btn-pink:active:focus,
-.btn-pink:active.focus,
-.btn-pink.active:hover,
-.btn-pink.active:focus,
-.btn-pink.active.focus,
-.open > .btn-pink.dropdown-toggle:hover,
-.open > .btn-pink.dropdown-toggle:focus,
-.open > .btn-pink.dropdown-toggle.focus {
-    color: #fff;
-    background-color: #ac2d83;
-    border-color: #8b2c7e;
-}
-.btn-pink.disabled:focus,
-.btn-pink.disabled.focus,
-.btn-pink:disabled:focus,
-.btn-pink:disabled.focus {
-    background-color: #d969b9;
-    border-color: #d965d9;
-}
-.btn-pink.disabled:hover,
-.btn-pink:disabled:hover {
-    background-color: #d969b9;
-    border-color: #d965d9;
-}
-
-
-.btn-purple {
-    color: #fff;
-    background-color: #7700c9;
-    border-color: #7b00c1;
-}
-
-.btn-purple:hover {
-    color: #fff;
-    background-color: #5c00c9;
-    border-color: #7c00c1;
-}
-.btn-purple:focus,
-.btn-purple.focus {
-    color: #fff;
-    background-color: #5c00c9;
-    border-color: #7c00c1;
-}
-.btn-purple:active,
-.btn-purple.active,
-.open > .btn-purple.dropdown-toggle {
-    color: #fff;
-    background-color: #630fc9;
-    border-color: #5b01c1;
-    background-image: none;
-}
-.btn-purple:active:hover,
-.btn-purple:active:focus,
-.btn-purple:active.focus,
-.btn-purple.active:hover,
-.btn-purple.active:focus,
-.btn-purple.active.focus,
-.open > .btn-purple.dropdown-toggle:hover,
-.open > .btn-purple.dropdown-toggle:focus,
-.open > .btn-purple.dropdown-toggle.focus {
-    color: #fff;
-    background-color: #7119ac;
-    border-color: #5d008b;
-}
-.btn-purple.disabled:focus,
-.btn-purple.disabled.focus,
-.btn-purple:disabled:focus,
-.btn-purple:disabled.focus {
-    background-color: #a330d9;
-    border-color: #921bd9;
-}
-.btn-purple.disabled:hover,
-.btn-purple:disabled:hover {
-    background-color: #a330d9;
-    border-color: #921bd9;
-}
-
-

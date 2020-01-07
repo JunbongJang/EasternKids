@@ -15,17 +15,17 @@
 
 </head>
 <!--https://www.vectorstock.com/royalty-free-vector/seamless-background-with-happy-children-vector-10113136-->
-<body style="background-image: url('../assets/background.png');">
+<body style="background-image: url('../assets/img/background.png');">
 
-    <div class="container">
+    <div class="container" style="display:none;" id="main_container">
         <div class="row mb-3">
             <div class="col">
-                <img src="../assets/cn_welleastern_logo.png"
+                <img src="../assets/img/cn_welleastern_logo.png"
                      class="logo_img"
                      alt="logo" style="height:115px;">
             </div>
             <div class="col">
-                <img src="../assets/eastern_kids_logo.png"
+                <img src="../assets/img/eastern_kids_logo.png"
                      class="logo_img"
                      alt="logo" style="height:180px;">
             </div>
@@ -37,9 +37,66 @@
              style="border-radius: 20px; border-style: solid; border-width: 5px; border-color: #007bff">
             <div class="col-3">
                 <div class="btn-group" style="width:100%" role="group" aria-label="Level select">
-                    <button type="button" class="btn btn-secondary" onclick="kChange(1)">K1</button>
-                    <button type="button" class="btn btn-secondary" onclick="kChange(2)">K2</button>
-                    <button type="button" class="btn btn-secondary" onclick="kChange(3)">K3</button>
+                    <div class="btn-group" style="width:100%" >
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            K1
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="main.html">1</a>
+                            <a class="dropdown-item" href="main.html">2</a>
+                            <a class="dropdown-item" href="main.html">3</a>
+                            <a class="dropdown-item" href="main.html">4</a>
+                            <a class="dropdown-item" href="main.html">5</a>
+                            <a class="dropdown-item" href="main.html">6</a>
+                            <a class="dropdown-item" href="main.html">7</a>
+                            <a class="dropdown-item" href="main.html">8</a>
+                            <a class="dropdown-item" href="main.html">9</a>
+                            <a class="dropdown-item" href="main.html">10</a>
+                            <a class="dropdown-item" href="main.html">11</a>
+                            <a class="dropdown-item" href="main.html">12</a>
+                        </div>
+                    </div>
+
+                    <div class="btn-group" style="width:100%" >
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            K2
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="main.html">1</a>
+                            <a class="dropdown-item" href="main.html">2</a>
+                            <a class="dropdown-item" href="main.html">3</a>
+                            <a class="dropdown-item" href="main.html">4</a>
+                            <a class="dropdown-item" href="main.html">5</a>
+                            <a class="dropdown-item" href="main.html">6</a>
+                            <a class="dropdown-item" href="main.html">7</a>
+                            <a class="dropdown-item" href="main.html">8</a>
+                            <a class="dropdown-item" href="main.html">9</a>
+                            <a class="dropdown-item" href="main.html">10</a>
+                            <a class="dropdown-item" href="main.html">11</a>
+                            <a class="dropdown-item" href="main.html">12</a>
+                        </div>
+                    </div>
+
+                    <div class="btn-group" style="width:100%" >
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            K3
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="main3.html">1</a>
+                            <a class="dropdown-item" href="main3.html">2</a>
+                            <a class="dropdown-item" href="main3.html">3</a>
+                            <a class="dropdown-item" href="main3.html">4</a>
+                            <a class="dropdown-item" href="main3.html">5</a>
+                            <a class="dropdown-item" href="main3.html">6</a>
+                            <a class="dropdown-item" href="main3.html">7</a>
+                            <a class="dropdown-item" href="main3.html">8</a>
+                            <a class="dropdown-item" href="main3.html">9</a>
+                            <a class="dropdown-item" href="main3.html">10</a>
+                            <a class="dropdown-item" href="main3.html">11</a>
+                            <a class="dropdown-item" href="main3.html">12</a>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="d-flex btn-group-vertical justify-content-middle mt-4">
@@ -187,42 +244,42 @@
                         <video id="red_video" onended="beforeYouStudyHideVideo('red')" style="display: none;"
                                preload="auto"
                                class="embed-responsive embed-responsive-16by9">
-                            <source src="../assets/files/k1/ho6/2_before_you_study/red_background.mp4" type="video/mp4">
+                            <source src="../assets/files/k1/ho6/2_before_you_study/red.mp4" type="video/mp4">
                             Your Browser don't support this video.
                         </video>
 
                         <video id="purple_video" onended="beforeYouStudyHideVideo('purple')" style="display: none;"
                                preload="auto"
                                class="embed-responsive embed-responsive-16by9">
-                            <source src="../assets/files/k1/ho6/2_before_you_study/purple_background.mp4" type="video/mp4">
+                            <source src="../assets/files/k1/ho6/2_before_you_study/purple.mp4" type="video/mp4">
                             Your Browser don't support this video.
                         </video>
 
                         <video id="orange_video" onended="beforeYouStudyHideVideo('orange')" style="display: none;"
                                preload="auto"
                                class="embed-responsive embed-responsive-16by9">
-                            <source src="../assets/files/k1/ho6/2_before_you_study/orange_background.mp4" type="video/mp4">
+                            <source src="../assets/files/k1/ho6/2_before_you_study/orange.mp4" type="video/mp4">
                             Your Browser don't support this video.
                         </video>
 
                         <video id="yellow_video" onended="beforeYouStudyHideVideo('yellow')" style="display: none;"
                                preload="auto"
                                class="embed-responsive embed-responsive-16by9">
-                            <source src="../assets/files/k1/ho6/2_before_you_study/yellow_background.mp4" type="video/mp4">
+                            <source src="../assets/files/k1/ho6/2_before_you_study/yellow.mp4" type="video/mp4">
                             Your Browser don't support this video.
                         </video>
 
                         <video id="green_video" onended="beforeYouStudyHideVideo('green')" style="display: none;"
                                preload="auto"
                                class="embed-responsive embed-responsive-16by9">
-                            <source src="../assets/files/k1/ho6/2_before_you_study/green_background.mp4" type="video/mp4">
+                            <source src="../assets/files/k1/ho6/2_before_you_study/green.mp4" type="video/mp4">
                             Your Browser don't support this video.
                         </video>
 
                         <video id="blue_video" onended="beforeYouStudyHideVideo('blue')" style="display: none;"
                                preload="auto"
                                class="embed-responsive embed-responsive-16by9">
-                            <source src="../assets/files/k1/ho6/2_before_you_study/blue_background.mp4" type="video/mp4">
+                            <source src="../assets/files/k1/ho6/2_before_you_study/blue.mp4" type="video/mp4">
                             Your Browser don't support this video.
                         </video>
 
@@ -253,25 +310,25 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" style="height: 600px;" src="../assets/files/k1/ho6/4_board/1.png" alt="First slide">
+                                    <img src="../assets/files/k1/ho6/4_board/1.png" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" style="height: 600px;" src="../assets/files/k1/ho6/4_board/2.png" alt="Second slide">
+                                    <img src="../assets/files/k1/ho6/4_board/2.png" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" style="height: 600px;" src="../assets/files/k1/ho6/4_board/3.png" alt="Third slide">
+                                    <img src="../assets/files/k1/ho6/4_board/3.png" alt="Third slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" style="height: 600px;" src="../assets/files/k1/ho6/4_board/4.png" alt="Fourth slide">
+                                    <img src="../assets/files/k1/ho6/4_board/4.png" alt="Fourth slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" style="height: 600px;" src="../assets/files/k1/ho6/4_board/5.png" alt="Fifth slide">
+                                    <img src="../assets/files/k1/ho6/4_board/5.png" alt="Fifth slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" style="height: 600px;" src="../assets/files/k1/ho6/4_board/6.png" alt="Sixth slide">
+                                    <img src="../assets/files/k1/ho6/4_board/6.png" alt="Sixth slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" style="height: 600px;" src="../assets/files/k1/ho6/4_board/7.png" alt="Seventh slide">
+                                    <img src="../assets/files/k1/ho6/4_board/7.png" alt="Seventh slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -292,7 +349,7 @@
 
                             <div class="col">
                                 <div class="card" id="activity_card_1" style="width: 18rem;" onclick="enterFolder(1)">
-                                    <img class="card-img-top" src="../assets/files/k1/ho6/5_activity/1.png" alt="Card image cap">
+                                    <img class="card-img-top" src="../assets/files/k1/ho6/5_activity/1_first.png" alt="Card image cap">
                                     <div class="card-body border-top">
                                         <p class="card-text">Color and Match Up</p>
                                     </div>
@@ -301,7 +358,7 @@
 
                             <div class="col">
                                 <div class="card" id="activity_card_2" style="width: 18rem;" onclick="enterFolder(2)">
-                                    <img class="card-img-top" src="../assets/files/k1/ho6/5_activity/2.png" alt="Card image cap">
+                                    <img class="card-img-top" src="../assets/files/k1/ho6/5_activity/2_second.png" alt="Card image cap">
                                     <div class="card-body border-top">
                                         <p class="card-text">Make a Story</p>
                                     </div>
@@ -314,7 +371,7 @@
 
                             <div class="col">
                                 <div class="card" id="activity_card_3" style="width: 18rem;" onclick="enterFolder(3)">
-                                    <img class="card-img-top" src="../assets/files/k1/ho6/5_activity/3.png" alt="Card image cap">
+                                    <img class="card-img-top" src="../assets/files/k1/ho6/5_activity/3_third.png" alt="Card image cap">
                                     <div class="card-body border-top">
                                         <p class="card-text">Let's Talk</p>
                                     </div>
@@ -324,15 +381,15 @@
                         </div>
 
 
-                        <iframe id="activity_1" src="../assets/files/k1/ho6/5_activity/1/activity.html"
+                        <iframe id="activity_1" src="../assets/files/k1/ho6/5_activity/1/1.html"
                                 frameborder="0" crossorigin="Anonymous"
                                 style="display:none; height:700px; width:541px;"></iframe>
 
-                        <iframe id="activity_2" src="../assets/files/k1/ho6/5_activity/1/activity.html"
+                        <iframe id="activity_2" src="../assets/files/k1/ho6/5_activity/1/1.html"
                                 frameborder="0" crossorigin="Anonymous"
                                 style="display:none; height:700px; width:541px;"></iframe>
 
-                        <iframe id="activity_3" src="../assets/files/k1/ho6/5_activity/1/activity.html"
+                        <iframe id="activity_3" src="../assets/files/k1/ho6/5_activity/1/1.html"
                                 frameborder="0" crossorigin="Anonymous"
                                 style="display:none; height:700px; width:541px;"></iframe>
                     </div>
@@ -398,14 +455,14 @@
                             </div>
                         </div>
 
-                        <div>
-                            <embed id="dance_1" src="../assets/genki/DISCOB.swf" height="550px" width="820px" style="display:none;">
-                            <embed id="dance_2" src="../assets/genki/JANKEN.swf" height="550px" width="820px" style="display:none;">
-                            <embed id="dance_3" src="../assets/genki/NAME.swf" height="550px" width="820px" style="display:none;">
-                            <embed id="dance_4" src="../assets/genki/HOWRUM.swf" height="550px" width="820px" style="display:none;">
-                            <embed id="dance_5" src="../assets/genki/SUPER.swf" height="550px" width="820px" style="display:none;">
-                            <embed id="dance_6" src="../assets/genki/LEFT.swf" height="550px" width="820px" style="display:none;">
-                            <embed id="dance_7" src="../assets/genki/PRONOUNS.swf" height="550px" width="820px" style="display:none;">
+                        <div id="dance_container" class="embed-responsive embed-responsive-16by9" style="display:none;">
+                            <embed id="dance_1" src="../assets/genki/DISCOB.swf" class="embed-responsive-item" style="display:none;">
+                            <embed id="dance_2" src="../assets/genki/JANKEN.swf" class="embed-responsive-item" style="display:none;">
+                            <embed id="dance_3" src="../assets/genki/NAME.swf" class="embed-responsive-item" style="display:none;">
+                            <embed id="dance_4" src="../assets/genki/HOWRUM.swf" class="embed-responsive-item" style="display:none;">
+                            <embed id="dance_5" src="../assets/genki/SUPER.swf" class="embed-responsive-item" style="display:none;">
+                            <embed id="dance_6" src="../assets/genki/LEFT.swf" class="embed-responsive-item" style="display:none;">
+                            <embed id="dance_7" src="../assets/genki/PRONOUNS.swf" class="embed-responsive-item" style="display:none;">
                         </div>
 
                     </div>
@@ -417,4 +474,8 @@
 
 </body>
 <script src="../assets/js/main.js"></script>
+<script>
+    cur_color = 'red';
+    kChange(1);
+</script>
 </html>
