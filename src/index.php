@@ -6,6 +6,7 @@ if (isset($_SESSION['member_id'])) {
 	$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 	header("Location: ".$protocol."www.welleastern.cn/user/cn/?goto=/EasternKids/src");
 }
+include 'utils.php';
 
 $cur_k = 1;
 $cur_ho = 6;
@@ -16,7 +17,10 @@ if (isset($_GET["ho"]) && $_GET["ho"] != '') {
 	$cur_ho = $_GET["ho"];
 }
 
-include 'utils.php';
+if (!checkHoExists($cur_k, $cur_ho)) {
+    ?>
+    history.go(-1);
+<?}
 
 $file_names_1 = getFileNames($cur_k, $cur_ho, 1);
 $display_names_1 = convertFileNamesToDisplayNames($file_names_1, 1);
@@ -43,7 +47,7 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 
 	<link rel="stylesheet" href="../assets/library/bootstrap-4.4.1-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/css/preloader.css">
-	<link rel="stylesheet" href="../assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/button.css">
 	<link rel="stylesheet" href="../assets/css/animate.css">
 	<link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans&display=swap" rel="stylesheet">
@@ -81,18 +85,18 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 							K1
 						</button>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="index.php?k=1&ho=6">1</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">2</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">3</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">4</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">5</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=1">1</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=2">2</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=3">3</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=4">4</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=5">5</a>
 							<a class="dropdown-item" href="index.php?k=1&ho=6">6</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">7</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">8</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">9</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">10</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">11</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">12</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=7">7</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=8">8</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=9">9</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=10">10</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=11">11</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=12">12</a>
 						</div>
 					</div>
 
@@ -101,18 +105,18 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 							K2
 						</button>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="index.php?k=1&ho=6">1</a>
-							<a class="dropdown-item" href="index.php?k=2&ho=6">2</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">3</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">4</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">5</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=1">1</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=2">2</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=3">3</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=4">4</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=5">5</a>
 							<a class="dropdown-item" href="index.php?k=1&ho=6">6</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">7</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">8</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">9</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">10</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">11</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">12</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=7">7</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=8">8</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=9">9</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=10">10</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=11">11</a>
+							<a class="dropdown-item" href="index.php?k=1&ho=12">12</a>
 						</div>
 					</div>
 
@@ -121,18 +125,18 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 							K3
 						</button>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="index.php?k=3&ho=3">1</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">2</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=1">1</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=2">2</a>
 							<a class="dropdown-item" href="index.php?k=3&ho=3">3</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">4</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">5</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">6</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">7</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">8</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">9</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">10</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">11</a>
-							<a class="dropdown-item" href="index.php?k=3&ho=3">12</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=4">4</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=5">5</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=6">6</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=7">7</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=8">8</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=9">9</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=10">10</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=11">11</a>
+							<a class="dropdown-item" href="index.php?k=3&ho=12">12</a>
 						</div>
 					</div>
 
@@ -140,7 +144,7 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 
 				<div class="d-flex btn-group-vertical justify-content-middle mt-4">
 					<button type="button" class="btn btn-lg btn-primary" onclick="studyChange(SING_A_SONG)">Sing a song</button>
-					<button type="button" class="btn btn-lg btn-info" onclick="studyChange(BEFORE_YOU_STUDY)">Before You Study</button>
+					<button type="button" class="btn btn-lg btn-info" onclick="studyChange(KEYWORDS)">Keywords</button>
 					<button type="button" class="btn btn-lg btn-success" onclick="studyChange(STORY_TELLING)">Story Telling</button>
 					<button type="button" class="btn btn-lg btn-warning" onclick="studyChange(BOARD)">Board</button>
 					<button type="button" class="btn btn-lg btn-danger" onclick="studyChange(ACTIVITY)">Activity</button>
@@ -151,9 +155,12 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 			</div>
 			<div class="col-9 border-left">
 				<div class="row">
-					<div class="col" >
-						<h1 id="state_title"></h1>
+					<div class="col-6" >
+						<h1 id="title_string"></h1>
 					</div>
+                    <div class="col-6 text-right" >
+                        <h1 id="k_ho_string">K<?=$cur_k?> Vo.<?=$cur_ho?></h1>
+                    </div>
 				</div>
 				<hr class="mb-2 mt-1">
 				<div class="row">
@@ -166,46 +173,75 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 								<div class="card"
 									 id="sing_a_song_card_1"
 									 style="width: 22rem;" onclick="enterFolder(1)">
-									<img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/thumbnail1.png" alt="Card image cap">
+									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/thumbnail1.png" alt="Card image cap">
 									<div class="card-body border-top">
-										<p class="card-text"><?=$display_names_1[0]?></p>
+										<p class="card-text">Hello Song</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="col-6">
 								<div class="card" id="sing_a_song_card_2" style="width: 22rem;" onclick="enterFolder(2)">
-									<img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/thumbnail2.png" alt="Card image cap">
+									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/thumbnail2.png" alt="Card image cap">
 									<div class="card-body border-top">
-										<p class="card-text"><?=$display_names_1[1]?></p>
+										<p class="card-text">Bye Song</p>
 									</div>
 								</div>
 							</div>
 
 						</div>
 
-						<div class="row">
+						<div class="row mb-3">
 							<div class="col-6">
 								<div class="card" id="sing_a_song_card_3" style="width: 22rem;" onclick="enterFolder(3)">
-									<img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/thumbnail3.png" alt="Card image cap">
+									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/thumbnail3.png" alt="Card image cap">
 									<div class="card-body border-top">
-										<p class="card-text"><?=$display_names_1[2]?></p>
+										<p class="card-text">Everyday Song</p>
 									</div>
 								</div>
 							</div>
+
+                            <div class="col-6">
+                                <div class="card" id="sing_a_song_card_4" style="width: 22rem;" onclick="enterFolder(4)">
+                                    <img class="card-img-top" src="../assets/files/common/1_sing_a_song/thumbnail4.png" alt="Card image cap">
+                                    <div class="card-body border-top">
+                                        <p class="card-text">Main Song</p>
+                                    </div>
+                                </div>
+                            </div>
 						</div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card" id="sing_a_song_card_5" style="width: 22rem;" onclick="enterFolder(5)">
+                                    <img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/thumbnail1.png" alt="Card image cap">
+                                    <div class="card-body border-top">
+                                        <p class="card-text"><?=$display_names_1[0]?></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="card" id="sing_a_song_card_6" style="width: 22rem;" onclick="enterFolder(6)">
+                                    <img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/thumbnail2.png" alt="Card image cap">
+                                    <div class="card-body border-top">
+                                        <p class="card-text"><?=$display_names_1[1]?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 						<video id="sing_a_song_video_1" controls preload="auto"
 							   class="embed-responsive embed-responsive-16by9"
 							   style="display:none;">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/<?=$file_names_1[0]?>" type="video/mp4">
+							<source src="../assets/files/common/1_sing_a_song/1_hello_song.mp4" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
 						<video id="sing_a_song_video_2" controls preload="auto"
 							   class="embed-responsive embed-responsive-16by9"
 							   style="display:none;">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/<?=$file_names_1[1]?>" type="video/mp4">
+							<source src="../assets/files/common/1_sing_a_song/2_bye_song.mp4" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
@@ -213,59 +249,79 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 						<video id="sing_a_song_video_3" controls preload="auto"
 							   class="embed-responsive embed-responsive-16by9"
 							   style="display:none;">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/<?=$file_names_1[2]?>" type="video/mp4">
+							<source src="../assets/files/common/1_sing_a_song/3_everyday_song.mp4" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
+                        <video id="sing_a_song_video_4" controls preload="auto"
+                               class="embed-responsive embed-responsive-16by9"
+                               style="display:none;">
+                            <source src="../assets/files/common/1_sing_a_song/4_main_song.mp4" type="video/mp4">
+                            Your Browser don't support this video.
+                        </video>
+
+                        <video id="sing_a_song_video_5" controls preload="auto"
+                               class="embed-responsive embed-responsive-16by9"
+                               style="display:none;">
+                            <source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/<?=$file_names_1[0]?>" type="video/mp4">
+                            Your Browser don't support this video.
+                        </video>
+
+                        <video id="sing_a_song_video_6" controls preload="auto"
+                               class="embed-responsive embed-responsive-16by9"
+                               style="display:none;">
+                            <source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/<?=$file_names_1[1]?>" type="video/mp4">
+                            Your Browser don't support this video.
+                        </video>
 
 					</div>
 
-					<div class="col" id="before_you_study" style="display: none;">
+					<div class="col" id="keywords" style="display: none;">
 
-						<iframe id="before_you_study_iframe"
-								src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_before_you_study/before_you_study/BeforeYouStudy.html"
+						<iframe id="keywords_iframe"
+								src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/before_you_study/BeforeYouStudy.html"
 								frameborder="0" crossorigin="Anonymous"
 								style="width:1100px; height:734px"></iframe>
 
-						<video id="<?=$display_names_2[0]?>_video" onended="beforeYouStudyHideVideo('apple')" style="display: none;"
+						<video id="<?=$display_names_2[0]?>_video" onended="keywordsHideVideo('<?=$display_names_2[0]?>')" style="display: none;"
 							   preload="auto"
 							   width="1100" height="734">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_before_you_study/<?=$file_names_2[0]?>" type="video/mp4">
+							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/<?=$file_names_2[0]?>" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
-						<video id="<?=$display_names_2[1]?>_video" onended="beforeYouStudyHideVideo('fish')" style="display: none;"
+						<video id="<?=$display_names_2[1]?>_video" onended="keywordsHideVideo('<?=$display_names_2[1]?>')" style="display: none;"
 							   preload="auto"
 							   width="1100" height="734">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_before_you_study/<?=$file_names_2[1]?>" type="video/mp4">
+							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/<?=$file_names_2[1]?>" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
-						<video id="<?=$display_names_2[2]?>_video" onended="beforeYouStudyHideVideo('egg')" style="display: none;"
+						<video id="<?=$display_names_2[2]?>_video" onended="keywordsHideVideo('<?=$display_names_2[2]?>')" style="display: none;"
 							   preload="auto"
 							   width="1100" height="734">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_before_you_study/<?=$file_names_2[2]?>" type="video/mp4">
+							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/<?=$file_names_2[2]?>" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
-						<video id="<?=$display_names_2[3]?>_video" onended="beforeYouStudyHideVideo('mushroom')" style="display: none;"
+						<video id="<?=$display_names_2[3]?>_video" onended="keywordsHideVideo('<?=$display_names_2[3]?>')" style="display: none;"
 							   preload="auto"
 							   width="1100" height="734">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_before_you_study/<?=$file_names_2[3]?>" type="video/mp4">
+							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/<?=$file_names_2[3]?>" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
-						<video id="<?=$display_names_2[4]?>_video" onended="beforeYouStudyHideVideo('cabbage')" style="display: none;"
+						<video id="<?=$display_names_2[4]?>_video" onended="keywordsHideVideo('<?=$display_names_2[4]?>')" style="display: none;"
 							   preload="auto"
 							   width="1100" height="734">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_before_you_study/<?=$file_names_2[4]?>" type="video/mp4">
+							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/<?=$file_names_2[4]?>" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
-						<video id="<?=$display_names_2[5]?>_video" onended="beforeYouStudyHideVideo('tofu')" style="display: none;"
+						<video id="<?=$display_names_2[5]?>_video" onended="keywordsHideVideo('<?=$display_names_2[5]?>')" style="display: none;"
 							   preload="auto"
 							   width="1100" height="734">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_before_you_study/<?=$file_names_2[5]?>" type="video/mp4">
+							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/<?=$file_names_2[5]?>" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 
@@ -317,9 +373,11 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 								<div class="carousel-item">
 									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/7.png" alt="Seventh slide">
 								</div>
+                                <? if (sizeof($file_names_4) > 7) { ?>
 								<div class="carousel-item">
 									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/8.png" alt="Seventh slide">
 								</div>
+                                <?} ?>
 							</div>
 							<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -388,7 +446,7 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 						<video id="phonics_video"
 							   preload="auto"
 							   controls class="embed-responsive embed-responsive-16by9">
-							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/6_phonics/1_a_b_c_d.mp4" type="video/mp4">
+							<source src="../assets/files/k3/ho3/6_phonics/1_a_b_c_d.mp4" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
 					</div>
@@ -462,7 +520,7 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 	</div>
 </main>
 
-<!-- loading layout replaced by app after startupp -->
+<!-- loading layout replaced by app after startupp-->
 <div class="app-loader" style="overflow-y:hidden;">
 	<div class="logo" ></div>
 	<svg class="spinner" viewBox="25 25 50 50">

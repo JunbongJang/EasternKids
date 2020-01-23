@@ -1,5 +1,5 @@
 SING_A_SONG = 'sing_a_song';
-BEFORE_YOU_STUDY = 'before_you_study';
+KEYWORDS = 'keywords';
 STORY_TELLING = 'story_telling';
 BOARD = 'board';
 ACTIVITY = 'activity';
@@ -15,21 +15,21 @@ cur_card[DANCE] = 1;
 
 window.onmessage = function(e) {
     if (typeof (e.data) === 'string') {
-        beforeYouStudyHideIframe(e.data);
+        keywordsHideIframe(e.data);
     }
 };
 
 
-function beforeYouStudyHideIframe(color) {
+function keywordsHideIframe(color) {
     cur_color = color;
     video_elem = document.getElementById(color + '_video');
     video_elem.style.display = '';
-    document.getElementById('before_you_study_iframe').style.display='none';
+    document.getElementById('keywords_iframe').style.display='none';
     video_elem.play();
 }
 
-function beforeYouStudyHideVideo(color) {
-    document.getElementById('before_you_study_iframe').style.display='';
+function keywordsHideVideo(color) {
+    document.getElementById('keywords_iframe').style.display='';
     video_elem = document.getElementById(color + '_video');
     video_elem.pause();
     video_elem.currentTime = 0;
@@ -38,7 +38,7 @@ function beforeYouStudyHideVideo(color) {
 
 function hideAll() {
     document.getElementById(SING_A_SONG).style.display='none';
-    document.getElementById(BEFORE_YOU_STUDY).style.display='none';
+    document.getElementById(KEYWORDS).style.display='none';
     document.getElementById(STORY_TELLING).style.display='none';
     document.getElementById(BOARD).style.display='none';
     document.getElementById(ACTIVITY).style.display='none';
@@ -62,8 +62,8 @@ function studyChange(state) {
     hideAll();
     exitFolder();
     pauseAllVideo();
-    if (cur_state == BEFORE_YOU_STUDY) {
-        beforeYouStudyHideVideo(cur_color);
+    if (cur_state == KEYWORDS) {
+        keywordsHideVideo(cur_color);
     }
 
     cur_state = state;
@@ -103,54 +103,54 @@ function enterFolder(thumbnail_num) {
 }
 
 function state_to_display(state) {
-    var state_title = document.getElementById('state_title');
+    var title_string = document.getElementById('title_string');
     var border_container = document.getElementById('border_container');
     if (state == SING_A_SONG) {
-        state_title.innerHTML = 'Sing a Song';
-        state_title.style.color = '#007bff';
+        title_string.innerHTML = 'Sing a Song';
+        title_string.style.color = '#007bff';
         border_container.style.borderColor = '#007bff';
         document.getElementById(SING_A_SONG).style.display='';
         $("#outer_container").addClass('container');
         $("#outer_container").removeClass('container-fluid');
-    } else if (state == BEFORE_YOU_STUDY) {
-        state_title.innerHTML = 'Before You Study';
-        state_title.style.color = '#16a2b8';
+    } else if (state == KEYWORDS) {
+        title_string.innerHTML = 'Keywords';
+        title_string.style.color = '#16a2b8';
         border_container.style.borderColor = '#16a2b8';
-        document.getElementById(BEFORE_YOU_STUDY).style.display='';
+        document.getElementById(KEYWORDS).style.display='';
         $("#outer_container").addClass('container-fluid');
         $("#outer_container").removeClass('container');
     } else if (state == STORY_TELLING) {
-        state_title.innerHTML = 'Story Telling';
-        state_title.style.color = '#27a745';
+        title_string.innerHTML = 'Story Telling';
+        title_string.style.color = '#27a745';
         border_container.style.borderColor = '#27a745';
         document.getElementById(STORY_TELLING).style.display='';
         $("#outer_container").addClass('container');
         $("#outer_container").removeClass('container-fluid');
     } else if (state == BOARD) {
-        state_title.innerHTML = 'Board';
-        state_title.style.color = '#ffc108';
+        title_string.innerHTML = 'Board';
+        title_string.style.color = '#ffc108';
         border_container.style.borderColor = '#ffc108';
         document.getElementById(BOARD).style.display='';
         $('.carousel').carousel(0);
         $("#outer_container").addClass('container-fluid');
         $("#outer_container").removeClass('container');
     } else if (state == ACTIVITY) {
-        state_title.innerHTML = 'Activity';
-        state_title.style.color = '#dc3545';
+        title_string.innerHTML = 'Activity';
+        title_string.style.color = '#dc3545';
         border_container.style.borderColor = '#dc3545';
         document.getElementById(ACTIVITY).style.display='';
         $("#outer_container").addClass('container');
         $("#outer_container").removeClass('container-fluid');
     } else if (state == PHONICS) {
-        state_title.innerHTML = 'Phonics';
-        state_title.style.color = '#c93cb0';
+        title_string.innerHTML = 'Phonics';
+        title_string.style.color = '#c93cb0';
         border_container.style.borderColor = '#c93cb0';
         document.getElementById(PHONICS).style.display='';
         $("#outer_container").addClass('container');
         $("#outer_container").removeClass('container-fluid');
     } else if (state == DANCE) {
-        state_title.innerHTML = 'Dance';
-        state_title.style.color = '#7700c9';
+        title_string.innerHTML = 'Dance';
+        title_string.style.color = '#7700c9';
         border_container.style.borderColor = '#7700c9';
         document.getElementById(DANCE).style.display='';
         $("#outer_container").addClass('container');
@@ -184,10 +184,6 @@ window.onload = function() {
 
 
     var t1 = gsap.timeline({defaults:{duration:2}});
-    // $('#main_container').css('display', '');
-
-    // $('#main_container').css('display', '');
-    // t1.to('.app-loader', {opacity: 1, y: 700, ease: 'Power4.easeInOut'})
         t1.to('.app-loader', {css:{'display':'none'}, duration:0})
         .to('#main_container', {css:{'display':''}, duration:0})
         .from('#main_container', {opacity: 1, y: -1000, ease: 'Power4.easeInOut'});

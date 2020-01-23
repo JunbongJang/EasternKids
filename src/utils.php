@@ -11,7 +11,7 @@ function getFileNames($cur_k, $cur_ho, $type) {
             }
         }
     } else if ($type == 2) {
-        $dir = "/home/web_data/welleastern/EasternKids/assets/files/k{$cur_k}/ho{$cur_ho}/2_before_you_study/";
+        $dir = "/home/web_data/welleastern/EasternKids/assets/files/k{$cur_k}/ho{$cur_ho}/2_keywords/";
         $files = array_diff(scandir($dir), array('.', '..'));
 
         foreach ($files as $file) {
@@ -82,4 +82,11 @@ function convertFileNamesToDisplayNames($file_names, $type) {
         }
     }
     return $display_names;
+}
+
+
+function checkHoExists($cur_k, $cur_ho) {
+    echo 'checkHoExists';
+    echo sizeof(getFileNames($cur_k, $cur_ho, 1));
+    return true;
 }
