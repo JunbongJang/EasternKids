@@ -11,12 +11,21 @@ function getFileNames($cur_k, $cur_ho, $type) {
             }
         }
     } else if ($type == 2) {
-        $dir = "/home/web_data/welleastern/EasternKids/assets/files/k{$cur_k}/ho{$cur_ho}/2_keywords/";
-        $files = array_diff(scandir($dir), array('.', '..'));
-
-        foreach ($files as $file) {
-            if (strpos($file, '.mp4') !== false) {
-                array_push($wanted_files, $file);
+        if (($cur_k==1 && $cur_ho==6) || ($cur_k==3 && $cur_ho==3)) {
+            $dir = "/home/web_data/welleastern/EasternKids/assets/files/k{$cur_k}/ho{$cur_ho}/2_keywords";
+            $files = array_diff(scandir($dir), array('.', '..'));
+            foreach ($files as $file) {
+                if (strpos($file, '.mp4') !== false) {
+                    array_push($wanted_files, $file);
+                }
+            }
+        } else {
+            $dir = "/home/web_data/welleastern/EasternKids/assets/files/k{$cur_k}/ho{$cur_ho}/2_keywords/resources";
+            $files = array_diff(scandir($dir), array('.', '..'));
+            foreach ($files as $file) {
+                if (strpos($file, '.png') !== false) {
+                    array_push($wanted_files, $file);
+                }
             }
         }
     } else if ($type == 3) {
@@ -59,7 +68,7 @@ function convertFileNamesToDisplayNames($file_names, $type) {
     if ($type == 1 or $type == 6) {
         foreach ($file_names as $file_name) {
             $str = preg_replace('/_/', ' ', $file_name);
-            $str = ucwords($str);
+//            $str = ucwords($str);
             $str = preg_replace('/(.mp4)|(.png)/', '', $str);
             $str = preg_replace('/[0-9]/', '', $str);
             $str = trim($str);
@@ -86,7 +95,5 @@ function convertFileNamesToDisplayNames($file_names, $type) {
 
 
 function checkHoExists($cur_k, $cur_ho) {
-    echo 'checkHoExists';
-    echo sizeof(getFileNames($cur_k, $cur_ho, 1));
-    return true;
+    return sizeof(getFileNames($cur_k, $cur_ho, 1)) > 0;
 }

@@ -6,7 +6,6 @@ ACTIVITY = 'activity';
 PHONICS = 'phonics';
 DANCE = 'dance';
 
-cur_k = 1;
 cur_state = SING_A_SONG;
 cur_card = {};
 cur_card[SING_A_SONG] = 1;
@@ -20,20 +19,51 @@ window.onmessage = function(e) {
 };
 
 
-function keywordsHideIframe(color) {
-    cur_color = color;
-    video_elem = document.getElementById(color + '_video');
-    video_elem.style.display = '';
-    document.getElementById('keywords_iframe').style.display='none';
-    video_elem.play();
+function keywordsHideIframe(keyword) {
+    cur_keyword = keyword;
+    if ((cur_k === 1 && cur_ho===6) ||(cur_k === 3 && cur_ho===3)) {
+        video_elem = document.getElementById(keyword + '_video');
+        video_elem.style.display = '';
+        document.getElementById('keywords_iframe').style.display='none';
+        video_elem.play();
+    } else {
+        document.getElementById('keywords_iframe').style.display='none';
+        playKeywordTwice(keyword, 0);
+    }
 }
 
-function keywordsHideVideo(color) {
-    document.getElementById('keywords_iframe').style.display='';
-    video_elem = document.getElementById(color + '_video');
-    video_elem.pause();
-    video_elem.currentTime = 0;
-    video_elem.style.display = 'none';
+function keywordsHideVideo(keyword) {
+    document.getElementById('keywords_iframe').style.display='block';
+    if ((cur_k === 1 && cur_ho===6) ||(cur_k === 3 && cur_ho===3)) {
+        video_elem = document.getElementById(keyword + '_video');
+        video_elem.pause();
+        video_elem.currentTime = 0;
+        video_elem.style.display = 'none';
+    } else {
+        document.getElementById(keyword + '_img').style.display = 'none';
+        document.getElementById(keyword + '_span').style.display = 'none';
+        audio_elem = document.getElementById(keyword + '_audio');
+        audio_elem.pause();
+        audio_elem.currentTime = 0;
+    }
+}
+
+function playKeywordTwice(keyword, counter) {
+    var audio_elem = document.getElementById(keyword + '_audio');
+    audio_elem.play();
+    if (counter == 0) {
+        document.getElementById(keyword + '_img').style.display = 'block';
+        audio_elem.onended = function() {playKeywordTwice(keyword, 1)};
+    }
+    else if (counter == 1) {
+        document.getElementById(keyword + '_img').style.display = 'none';
+        document.getElementById(keyword + '_span').style.display = 'block';
+        audio_elem.onended = function() {playKeywordTwice(keyword, 2)};
+    } else if (counter == 2) {
+        document.getElementById(keyword + '_img').style.display = 'block';
+        document.getElementById(keyword + '_span').style.display = 'none';
+        audio_elem.onended = function() {keywordsHideVideo(keyword)};
+    }
 }
 
 function hideAll() {
@@ -54,16 +84,22 @@ function pauseAllVideo() {
     }
 }
 
-function kChange(k_num) {
-    cur_k = k_num;
+function pauseAllAudio() {
+    all_audios = $("audio");
+    for (var i = 0; i < all_audios.length; i++) {
+        audio_elem = all_audios[i];
+        audio_elem.pause();
+    }
 }
+
 
 function studyChange(state) {
     hideAll();
     exitFolder();
     pauseAllVideo();
+    pauseAllAudio();
     if (cur_state == KEYWORDS) {
-        keywordsHideVideo(cur_color);
+        keywordsHideVideo(cur_keyword);
     }
 
     cur_state = state;
@@ -91,10 +127,12 @@ function enterFolder(thumbnail_num) {
     $(".card").css("display","none");
     if (cur_state == SING_A_SONG) {
         cur_card[SING_A_SONG] = thumbnail_num;
-        document.getElementById('sing_a_song_video_' + cur_card[SING_A_SONG]).style.display='';
+        document.getElementById('sing_a_song_video_' + cur_card[SING_A_SONG]).style.display='block';
     } else if (cur_state == ACTIVITY) {
         cur_card[ACTIVITY] = thumbnail_num;
-        document.getElementById('activity_' + cur_card[ACTIVITY]).style.display='';
+        var cur_iframe = document.getElementById('activity_' + cur_card[ACTIVITY]);
+        cur_iframe.style.display='block';
+        resizeIFrameToFitContent( cur_iframe );
     } else if (cur_state == DANCE) {
         cur_card[DANCE] = thumbnail_num;
         document.getElementById('dance_container').style.display='';
@@ -116,9 +154,12 @@ function state_to_display(state) {
         title_string.innerHTML = 'Keywords';
         title_string.style.color = '#16a2b8';
         border_container.style.borderColor = '#16a2b8';
-        document.getElementById(KEYWORDS).style.display='';
+        document.getElementById(KEYWORDS).style.display='flex';
         $("#outer_container").addClass('container-fluid');
         $("#outer_container").removeClass('container');
+
+        var iFrame = document.getElementById( 'keywords_iframe' );
+        resizeIFrameToFitContent( iFrame );
     } else if (state == STORY_TELLING) {
         title_string.innerHTML = 'Story Telling';
         title_string.style.color = '#27a745';
@@ -158,6 +199,11 @@ function state_to_display(state) {
     }
 }
 
+function resizeIFrameToFitContent( iFrame ) {
+    iFrame.width  = iFrame.contentWindow.document.body.scrollWidth;
+    iFrame.height = iFrame.contentWindow.document.body.scrollHeight;
+}
+
 window.onload = function() {
     studyChange(SING_A_SONG);
 
@@ -187,6 +233,5 @@ window.onload = function() {
         t1.to('.app-loader', {css:{'display':'none'}, duration:0})
         .to('#main_container', {css:{'display':''}, duration:0})
         .from('#main_container', {opacity: 1, y: -1000, ease: 'Power4.easeInOut'});
-
 
 };

@@ -9,7 +9,7 @@ if (isset($_SESSION['member_id'])) {
 include 'utils.php';
 
 $cur_k = 1;
-$cur_ho = 6;
+$cur_ho = 1;
 if ( isset($_GET["k"]) && $_GET["k"] != '') {
 	$cur_k = $_GET["k"];
 }
@@ -19,7 +19,10 @@ if (isset($_GET["ho"]) && $_GET["ho"] != '') {
 
 if (!checkHoExists($cur_k, $cur_ho)) {
     ?>
-    history.go(-1);
+    <script>
+        alert("K<?=$cur_k?> Vo.<?=$cur_ho?> doesn't exist. Going back to the previous page");
+        history.go(-1);
+    </script>
 <?}
 
 $file_names_1 = getFileNames($cur_k, $cur_ho, 1);
@@ -105,18 +108,18 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 							K2
 						</button>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="index.php?k=1&ho=1">1</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=1">1</a>
 							<a class="dropdown-item" href="index.php?k=2&ho=2">2</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=3">3</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=4">4</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=5">5</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=6">6</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=7">7</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=8">8</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=9">9</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=10">10</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=11">11</a>
-							<a class="dropdown-item" href="index.php?k=1&ho=12">12</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=3">3</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=4">4</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=5">5</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=6">6</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=7">7</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=8">8</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=9">9</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=10">10</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=11">11</a>
+							<a class="dropdown-item" href="index.php?k=2&ho=12">12</a>
 						</div>
 					</div>
 
@@ -173,7 +176,7 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 								<div class="card"
 									 id="sing_a_song_card_1"
 									 style="width: 22rem;" onclick="enterFolder(1)">
-									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/thumbnail1.png" alt="Card image cap">
+									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/1.png" alt="Card image cap">
 									<div class="card-body border-top">
 										<p class="card-text">Hello Song</p>
 									</div>
@@ -182,7 +185,7 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 
 							<div class="col-6">
 								<div class="card" id="sing_a_song_card_2" style="width: 22rem;" onclick="enterFolder(2)">
-									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/thumbnail2.png" alt="Card image cap">
+									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/2.png" alt="Card image cap">
 									<div class="card-body border-top">
 										<p class="card-text">Bye Song</p>
 									</div>
@@ -194,7 +197,7 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 						<div class="row mb-3">
 							<div class="col-6">
 								<div class="card" id="sing_a_song_card_3" style="width: 22rem;" onclick="enterFolder(3)">
-									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/thumbnail3.png" alt="Card image cap">
+									<img class="card-img-top" src="../assets/files/common/1_sing_a_song/3.png" alt="Card image cap">
 									<div class="card-body border-top">
 										<p class="card-text">Everyday Song</p>
 									</div>
@@ -203,7 +206,7 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 
                             <div class="col-6">
                                 <div class="card" id="sing_a_song_card_4" style="width: 22rem;" onclick="enterFolder(4)">
-                                    <img class="card-img-top" src="../assets/files/common/1_sing_a_song/thumbnail4.png" alt="Card image cap">
+                                    <img class="card-img-top" src="../assets/files/common/1_sing_a_song/4.png" alt="Card image cap">
                                     <div class="card-body border-top">
                                         <p class="card-text">Main Song</p>
                                     </div>
@@ -214,21 +217,23 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
                         <div class="row">
                             <div class="col-6">
                                 <div class="card" id="sing_a_song_card_5" style="width: 22rem;" onclick="enterFolder(5)">
-                                    <img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/thumbnail1.png" alt="Card image cap">
+                                    <img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/1.png" alt="Card image cap">
                                     <div class="card-body border-top">
                                         <p class="card-text"><?=$display_names_1[0]?></p>
                                     </div>
                                 </div>
                             </div>
 
+                            <?if (sizeof($display_names_1) > 1) {?>
                             <div class="col-6">
                                 <div class="card" id="sing_a_song_card_6" style="width: 22rem;" onclick="enterFolder(6)">
-                                    <img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/thumbnail2.png" alt="Card image cap">
+                                    <img class="card-img-top" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/1_sing_a_song/2.png" alt="Card image cap">
                                     <div class="card-body border-top">
                                         <p class="card-text"><?=$display_names_1[1]?></p>
                                     </div>
                                 </div>
                             </div>
+                            <?}?>
                         </div>
 
 						<video id="sing_a_song_video_1" controls preload="auto"
@@ -276,12 +281,13 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 
 					</div>
 
-					<div class="col" id="keywords" style="display: none;">
+					<div class="col" id="keywords"
+                         style="display: none; min-height:900px; justify-content: center; align-items: center;">
 
-						<iframe id="keywords_iframe"
-								src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/before_you_study/BeforeYouStudy.html"
-								frameborder="0" crossorigin="Anonymous"
-								style="width:1100px; height:734px"></iframe>
+                        <?if (($cur_k==1 && $cur_ho==6) || ($cur_k==3 && $cur_ho==3)) {?>
+                            <iframe id="keywords_iframe"
+                                    src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/1.html"
+                                    frameborder="0" crossorigin="Anonymous" style="width:1100px; height:734px;"></iframe>
 
 						<video id="<?=$display_names_2[0]?>_video" onended="keywordsHideVideo('<?=$display_names_2[0]?>')" style="display: none;"
 							   preload="auto"
@@ -324,7 +330,27 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 							<source src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/<?=$file_names_2[5]?>" type="video/mp4">
 							Your Browser don't support this video.
 						</video>
-
+                        <?} else {
+                            ?>
+                            <iframe id="keywords_iframe"
+                                    src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/1.html"
+                                    class="animated zoomIn"
+                                    frameborder="0" crossorigin="Anonymous"></iframe>
+                        <?
+                            foreach ($file_names_2 as $file_name) {
+                                $file_name_raw = str_replace('.png','',$file_name);
+                            ?>
+                            <img id="<?=$file_name_raw?>_img" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/resources/<?=$file_name?>"
+                                 class="animated heartBeat"
+                                 style="display: none; width:400px;height:400px;">
+                            <audio id="<?=$file_name_raw?>_audio"
+                                   src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/2_keywords/resources/<?=$file_name_raw.'.mp3'?>"></audio>
+                            <h1 id="<?=$file_name_raw?>_span" style="display: none; font-size:120px;"
+                            class="animated lightSpeedIn">
+                                <?=str_replace('_',' ',$file_name_raw)?>
+                            </h1>
+                        <?}
+                        }?>
 					</div>
 
 
@@ -352,32 +378,18 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 								<li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
 							</ol>
 							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/1.png" alt="First slide">
-								</div>
-								<div class="carousel-item">
-									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/2.png" alt="Second slide">
-								</div>
-								<div class="carousel-item">
-									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/3.png" alt="Third slide">
-								</div>
-								<div class="carousel-item">
-									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/4.png" alt="Fourth slide">
-								</div>
-								<div class="carousel-item">
-									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/5.png" alt="Fifth slide">
-								</div>
-								<div class="carousel-item">
-									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/6.png" alt="Sixth slide">
-								</div>
-								<div class="carousel-item">
-									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/7.png" alt="Seventh slide">
-								</div>
-                                <? if (sizeof($file_names_4) > 7) { ?>
-								<div class="carousel-item">
-									<img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/8.png" alt="Seventh slide">
-								</div>
-                                <?} ?>
+                                <?
+                                $counter = 0;
+                                foreach ($file_names_4 as $file_name) {
+                                    if ($counter==0) {?>
+                                        <div class="carousel-item active">
+                                    <?} else { ?>
+                                        <div class="carousel-item">
+                                    <?}?>
+                                        <img src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/4_board/<?=$file_name?>" alt="a slide">
+                                    </div>
+                                <?$counter++;
+                                }?>
 							</div>
 							<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -431,13 +443,13 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 
 						<iframe id="activity_1" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/5_activity/1/1.html"
 								frameborder="0" crossorigin="Anonymous"
-								style="display:none; height:792px; width:1057px;"></iframe>
+								style="display:none;"></iframe>
 
-						<iframe id="activity_2" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/5_activity/1/1.html"
+						<iframe id="activity_2" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/5_activity/2/2.html"
 								frameborder="0" crossorigin="Anonymous"
 								style="display:none;"></iframe>
 
-						<iframe id="activity_3" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/5_activity/1/1.html"
+						<iframe id="activity_3" src="../assets/files/k<?=$cur_k?>/ho<?=$cur_ho?>/5_activity/3/3.html"
 								frameborder="0" crossorigin="Anonymous"
 								style="display:none;"></iframe>
 					</div>
@@ -537,10 +549,12 @@ $display_names_5 = convertFileNamesToDisplayNames($file_names_5, 5);
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.4/gsap.min.js"></script>
-<script src="../assets/js/main.js"></script>
 <script>
-	cur_color = '<?=$display_names_2[0]?>';
+	var cur_keyword = '<?=$display_names_2[0]?>';
+	var cur_k = <?=$cur_k?>;
+    var cur_ho = <?=$cur_ho?>;
 </script>
+<script src="../assets/js/main.js"></script>
 
 
 </html>
